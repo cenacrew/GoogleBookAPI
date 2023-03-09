@@ -1,15 +1,13 @@
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import BookList from './components/BookList';
 
 function App() {
 
   const [author, setAuthor] = React.useState('');
-  const [isEmpty, setIsEmpty] = useState(false);
 
   const handleChange = (event) => {
     setAuthor(event.target.value);
-    setIsEmpty(event.target.value === '');
   }
 
 
