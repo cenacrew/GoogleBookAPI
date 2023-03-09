@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Book from './Book';
 
 export default class BookList extends React.Component {
   constructor(props) {
@@ -9,23 +10,39 @@ export default class BookList extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.title = document.querySelector('title');
+    this.title.textContent = 'Bookle';
+  }
+
   componentDidUpdate(prevProps) {
-    if (prevProps.author !== this.props.author) {
+    if (this.props.author && prevProps.author !== this.props.author) {
       axios.get(`https://www.googleapis.com/books/v1/volumes?q=inauthor:${this.props.author}`)
         .then(res => {
-          const books = res.data.items;
+          const books = res.data.items || [];
           this.setState({ books });
         })
+        .catch(error => {
+          console.log(error);
+          this.setState({ books: [] });
+        });
     }
   }
 
   render() {
+    if (!this.props.author) {
+      return <p>Veuillez renseigner un nom d'auteur</p>;
+    }
+    if (this.state.books.length === 0) {
+      return <p>Aucun livre ne porte cet auteur.</p>;
+    }
     return (
       <ul>
         {this.state.books.map(book =>
-          <li key={book.id}>{book.volumeInfo.title}<img src={book.volumeInfo.imageLinks.thumbnail}></img></li>
+          <Book key={book.id} book={book}/>
         )}
       </ul>
     )
   }
+  
 }

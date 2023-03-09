@@ -1,16 +1,20 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import BookList from './components/BookList';
 
 function App() {
 
   const [author, setAuthor] = React.useState('');
+  const [isEmpty, setIsEmpty] = useState(false);
 
   const handleChange = (event) => {
     setAuthor(event.target.value);
+    setIsEmpty(event.target.value === '');
   }
 
+
   return (
+    
     <div id="everything">
       <header>
         <title>Bookle</title>
@@ -20,7 +24,6 @@ function App() {
         <input type="text" placeholder="Auteur" autofocus onChange={handleChange}/>
       </nav>
       <div id="main">
-        <p>pas de livre</p>
       </div>
       <BookList author={author}/>
       <footer>
