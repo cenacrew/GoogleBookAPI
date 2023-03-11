@@ -1,13 +1,15 @@
 import './App.css';
 import React from 'react';
-import BookList from './components/BookList';
+import Paginator from './components/Paginator';
 
 function App() {
 
   const [author, setAuthor] = React.useState('');
+  const [startIndex, setStartIndex] = React.useState(0);
 
   const handleChange = (event) => {
     setAuthor(event.target.value);
+    setStartIndex(0); // Reset startIndex to 0 when author is changed
   }
 
 
@@ -15,7 +17,6 @@ function App() {
     
     <div id="everything">
       <header>
-        <title>Bookle</title>
       </header>
       <nav>
         <h1>API de rechercher Google</h1>
@@ -23,11 +24,7 @@ function App() {
       </nav>
       <div id="main">
       </div>
-      <BookList author={author}/>
-      <footer>
-        <a>Previous</a>
-        <a>Next</a>
-      </footer>
+      <Paginator author={author} startIndex={startIndex} setStartIndex={setStartIndex} />
     </div>
   )
 }
