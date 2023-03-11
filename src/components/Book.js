@@ -10,7 +10,7 @@ const Book = ({ book }) => {
 
   return (
     <div className="book">
-      <a target="_blank" href={book.volumeInfo.previewLink}><h2>{title ? title : 'No title available'}</h2></a>  // Display title if available, otherwise display 'No title available'
+      <a target="_blank" href={book.volumeInfo.previewLink}><h2>{title ? title : 'Pas de titre disponible'}</h2></a> (// Display title if available, otherwise display 'Pas de titre disponi')
       <p>Par {authors ? authors.join(', ') : 'Auteur inconnu'}</p> (// Display authors if available, otherwise display 'Auteur inconnu')
       {imageLinks && imageLinks.thumbnail ? ( 
         <img src={imageLinks.thumbnail} alt={title} /> // Display thumbnail if available
