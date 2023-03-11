@@ -42,13 +42,13 @@ const Paginator = ({ author, startIndex, setStartIndex }) => {  // Pagination co
       <BookList author={author} startIndex={startIndex} /> {/* BookList component */}
       <footer>
         <button disabled={startIndex === 0} onClick={handlePrevious}> {/* Previous button */}
-          Previous
+          Précédent
         </button>
         <div>
           {`Page ${currentPage} of ${totalPages}`} {/* Current page number and total number of pages */}
         </div>
         <button disabled={disableNextButton} onClick={handleNext}> {/* Next button */}
-          Next
+          Suivant
         </button>
       </footer>
     </>
