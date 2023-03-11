@@ -7,8 +7,8 @@ function App() {
   const [author, setAuthor] = React.useState('');
   const [startIndex, setStartIndex] = React.useState(0);
 
-  const handleChange = (event) => {
-    setAuthor(event.target.value);
+  const handleChange = (event) => { // Handle change in author input
+    setAuthor(event.target.value); // Set author to the value of the input
     setStartIndex(0); // Reset startIndex to 0 when author is changed
   }
 
