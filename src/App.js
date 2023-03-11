@@ -19,7 +19,7 @@ function App() {
       </header>
       <nav>
         <h1>API de rechercher Google</h1>
-        <input type="text" placeholder="Auteur" autofocus onChange={handleChange}/>
+        <input type="text" placeholder="Auteur" autoFocus onChange={handleChange}/>
       </nav>
       <div id="main">
       </div>

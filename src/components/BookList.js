@@ -39,7 +39,7 @@ export default class BookList extends React.Component {
     return (
       <ul>
         {this.state.books.map(book =>
-          <Book key={book.id} book={book}/>
+          <Book key={book.volumeInfo.id} book={book}/>
         )}
       </ul>
     )
